@@ -13,5 +13,33 @@ public class Game {
         System.out.println("Hell shouts your name to devour your soul!");
         System.out.println("Please select a class to start!");
         player.selectChar();
+
+        Location location = null;
+
+        while(true) {
+            player.printInfo();
+            System.out.println();
+                System.out.println("Available locations: ");
+                System.out.println("1- Safe House ");
+                System.out.println("2- Tool Store");
+
+                int selectLocation = input.nextInt();
+
+                switch (selectLocation) {
+                    case 1:
+                        location = new SafeHouse(player);
+                        break;
+                    case 2:
+                        location = new ToolStore(player);
+                        break;
+                    default:
+                        location = new SafeHouse(player);
+                }
+                if(!location.onLocation()) {
+                    System.out.println("All hope abandoned!");
+                    break;
+                }
+
+        }
     }
 }
