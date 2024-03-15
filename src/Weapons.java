@@ -13,7 +13,7 @@ public class Weapons {
 
     public static Weapons[] weapons(){
         Weapons[] weaponsList = new Weapons[3];
-        weaponsList[0] = new Weapons("Pistol", 1,2,5);
+        weaponsList[0] = new Weapons("Pistol", 1,2,15);
         weaponsList[1] = new Weapons("Sword", 2,3,35);
         weaponsList[2] = new Weapons("Rifle", 3,7,45);
         return weaponsList;
@@ -30,6 +30,8 @@ public class Weapons {
 
         return null;
     }
+
+
 
     public int getId() {
         return id;

@@ -1,32 +1,31 @@
 import java.util.Scanner;
 
 public class Player {
-   private int damage;
+    private int damage;
     private int health;
     private int money;
     private String name;
     private String charName;
-    private Scanner input = new Scanner(System.in);
+    private final Scanner input = new Scanner(System.in);
     private Inventory inventory;
-
 
 
     public Player(String name) {
         this.name = name;
-        this.inventory= new Inventory();
+        this.inventory = new Inventory();
     }
 
-    public  void selectChar() {
+    public void selectChar() {
 
         GameChar[] charList = {new Samurai(), new Archer(), new Paladin()};
 
         System.out.println("/////////////////////////////");
         System.out.println("Available classes: ");
-        for (GameChar gameChar : charList){
+        for (GameChar gameChar : charList) {
 
-            System.out.println( "ID: " + gameChar.getId() +
+            System.out.println("ID: " + gameChar.getId() +
                     "\t Classes: " + gameChar.getName() +
-                    "\t Damage :" + gameChar.getDamage()+
+                    "\t Damage :" + gameChar.getDamage() +
                     "\t Health :" + gameChar.getHealth() +
                     "\t Money :" + gameChar.getMoney());
 
@@ -35,7 +34,7 @@ public class Player {
 
         int selectChar = input.nextInt();
         switch (selectChar) {
-            case 1 :
+            case 1:
                 initPlayer(new Samurai());
                 break;
             case 2:
@@ -51,7 +50,7 @@ public class Player {
     }
 
 
-    public void initPlayer(GameChar gameChar){
+    public void initPlayer(GameChar gameChar) {
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
@@ -59,8 +58,13 @@ public class Player {
     }
 
     public void printInfo() {
-        System.out.println("Your weapon: " + this.getInventory().getWeapons().getName() +
-             "Your damage: " + this.getDamage() + "Health: "  + this.getHealth()  + "Currency: " + this.getMoney() );
+        System.out.println(
+                "Your weapon: " + this.getInventory().getWeapons().getName() +
+                "Your Armor: " + this.getInventory().getArmors().getName() +
+                        "Block Amount: " + this.getInventory().getArmors().getBlock() +
+                "Your damage: " + this.getDamage() +
+                        "Health: " + this.getHealth() +
+                        "Currency: " + this.getMoney());
     }
 
     public int getDamage() {

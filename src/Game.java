@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Game {
-    private Scanner input = new Scanner(System.in);
+    private final Scanner input = new Scanner(System.in);
     public void start() {
 
         System.out.println("Welcome to our basic RPG game!");
@@ -22,10 +22,14 @@ public class Game {
                 System.out.println("Available locations: ");
                 System.out.println("1- Safe House ");
                 System.out.println("2- Tool Store");
+            System.out.println("0- Quit");
 
                 int selectLocation = input.nextInt();
 
                 switch (selectLocation) {
+                    case 0 :
+                        location = null;
+                        break;
                     case 1:
                         location = new SafeHouse(player);
                         break;
@@ -34,6 +38,10 @@ public class Game {
                         break;
                     default:
                         location = new SafeHouse(player);
+                }
+                if (location == null){
+                    System.out.println("I wonder if your advantues goes on! Come back soon!");
+                    break;
                 }
                 if(!location.onLocation()) {
                     System.out.println("All hope abandoned!");
