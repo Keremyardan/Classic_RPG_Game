@@ -11,7 +11,7 @@ public class ToolStore extends NormalLocation {
         System.out.println("Welcome to the bloodiest shop ever!");
         boolean showMenu= true;
        while(showMenu) {
-           System.out.println("What you'd like to buy to crash your enemies?");
+           System.out.println("What you'd like to buy to crush your enemies?");
            System.out.println("1- Weapons");
            System.out.println("2- Armours");
            System.out.println("3- Quit");

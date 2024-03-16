@@ -8,6 +8,7 @@ public class Player {
     private String charName;
     private final Scanner input = new Scanner(System.in);
     private Inventory inventory;
+    private int defaultHealth;
 
 
     public Player(String name) {
@@ -46,13 +47,14 @@ public class Player {
             default:
                 initPlayer(new Samurai());
         }
-        //System.out.println("Character Class: " + this.getCharName() + " Damage: " + this.getDamage() + " Health: " + this.getHealth() + " Money: " + this.getMoney());
+
     }
 
 
     public void initPlayer(GameChar gameChar) {
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
+        this.setDefaultHealth(gameChar.getHealth());
         this.setMoney(gameChar.getMoney());
         this.setCharName(gameChar.getName());
     }
@@ -62,13 +64,18 @@ public class Player {
                 "Your weapon: " + this.getInventory().getWeapons().getName() +
                 "Your Armor: " + this.getInventory().getArmors().getName() +
                         "Block Amount: " + this.getInventory().getArmors().getBlock() +
-                "Your damage: " + this.getDamage() +
+                "Your damage: " + this.getTotalDamage() +
                         "Health: " + this.getHealth() +
                         "Currency: " + this.getMoney());
     }
 
-    public int getDamage() {
+    public int getTotalDamage() {
         return damage + this.getInventory().getWeapons().getDamage();
+    }
+
+    public int getDamage() {
+        return damage;
+
     }
 
     public void setDamage(int damage) {
@@ -113,5 +120,21 @@ public class Player {
 
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
+    }
+
+    public Weapons getWeapon(){
+        return this. getInventory().getWeapons();
+    }
+
+    public int getDefaultHealth() {
+        return defaultHealth;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
+    }
+
+    public Scanner getInput() {
+        return input;
     }
 }

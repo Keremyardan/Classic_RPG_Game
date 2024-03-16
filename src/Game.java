@@ -22,6 +22,9 @@ public class Game {
                 System.out.println("Available locations: ");
                 System.out.println("1- Safe House ");
                 System.out.println("2- Tool Store");
+            System.out.println("3- Cave > Reward : Food");
+            System.out.println("4- Forest > Reward: Fire Wood");
+            System.out.println("5- River > Reward : Water");
             System.out.println("0- Quit");
 
                 int selectLocation = input.nextInt();
@@ -36,8 +39,17 @@ public class Game {
                     case 2:
                         location = new ToolStore(player);
                         break;
+                    case 3:
+                        location = new Cave(player);
+                        break;
+                    case 4 :
+                        location = new Forest(player);
+                        break;
+                    case 5 :
+                        location = new River(player);
+                        break;
                     default:
-                        location = new SafeHouse(player);
+                        System.out.println("Please enter a valid value!");
                 }
                 if (location == null){
                     System.out.println("I wonder if your advantues goes on! Come back soon!");
